@@ -13,4 +13,9 @@ public class StringCalculatorTest {
     public void testSingleDigitStringReturnsTen(){
         assertEquals(10, new StringCalculator().add("10"));
     }
+
+    @Test
+    public void testTwoDigitStringReturnsSum(){
+        assertEquals(3, new StringCalculator().add("1,2"));
+    }
 }

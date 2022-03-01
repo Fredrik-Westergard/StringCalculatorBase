@@ -1,7 +1,7 @@
 public class StringCalculator {
 
 
-    public int add(String str) {
+    public int add(String str) throws Exception {
 
         if(str.isEmpty()){
             return 0;
@@ -16,7 +16,11 @@ public class StringCalculator {
         String[] array = replaced.split(",");
         int num = 0;
         for (String number: array) {
-            num+=Integer.parseInt(number);
+            int n;
+            if((n = Integer.parseInt(number)) < 0){
+                throw new Exception("Negatives not allowed " + n);
+            }
+            num+=n;
         }
 
         return num;

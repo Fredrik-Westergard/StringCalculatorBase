@@ -1,36 +1,69 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StringCalculatorTest {
 
     @Test
     public void testEmptyStringReturnsZero(){
-        assertEquals(0, new StringCalculator().add(""));
+        try {
+            assertEquals(0, new StringCalculator().add(""));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void testSingleDigitStringReturnsTen(){
-        assertEquals(10, new StringCalculator().add("10"));
+        try {
+            assertEquals(10, new StringCalculator().add("10"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void testTwoDigitStringReturnsSum(){
-        assertEquals(3, new StringCalculator().add("1,2"));
+        try {
+            assertEquals(3, new StringCalculator().add("1,2"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void testUnknownNumberOfDigitsReturnSum(){
-        assertEquals(91, new StringCalculator().add("1,2,3,4,5,6,7,8,9,10,11,12,13"));
+        try {
+            assertEquals(91, new StringCalculator().add("1,2,3,4,5,6,7,8,9,10,11,12,13"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void testUnknownNumberOfDigitsWithNewLineSeparatorAndCommaReturnsSum(){
-        assertEquals(91, new StringCalculator().add("1\n2,3,4\n5,6,7,8,9\n10,11,12\n13"));
+        try {
+            assertEquals(91, new StringCalculator().add("1\n2,3,4\n5,6,7,8,9\n10,11,12\n13"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void testUnknownNumberOfDigitsWithDifferentSeparatorReturnsSum(){
-        assertEquals(91, new StringCalculator().add(";\n1;2;3;4;5;6;7;8;9;10;11;12;13"));
+        try {
+            assertEquals(91, new StringCalculator().add(";\n1;2;3;4;5;6;7;8;9;10;11;12;13"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testExceptionThrownForNegativeNumbers(){
+        Exception exception = assertThrows(Exception.class, () -> new StringCalculator().add(";\n1;2;3;4;5;6;-7;8;9;10;11;12;13"));
+
+        String expected = "Negatives not allowed -7";
+
+        assertTrue(exception.getMessage().contains(expected));
     }
 }

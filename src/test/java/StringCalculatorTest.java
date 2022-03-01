@@ -18,4 +18,9 @@ public class StringCalculatorTest {
     public void testTwoDigitStringReturnsSum(){
         assertEquals(3, new StringCalculator().add("1,2"));
     }
+
+    @Test
+    public void testUnknownNumberOfDigitsReturnSum(){
+        assertEquals(91, new StringCalculator().add("1,2,3,4,5,6,7,8,9,10,11,12,13"));
+    }
 }

@@ -1,12 +1,13 @@
 public class StringCalculator {
 
 
-    public int add(String s) {
+    public int add(String str) {
 
-        if(s.isEmpty()){
+        if(str.isEmpty()){
             return 0;
         }
-        String[] array = s.split(",");
+        String replaced = str.replace("\n",",");
+        String[] array = replaced.split(",");
         int num = 0;
         for (String number: array) {
             num+=Integer.parseInt(number);

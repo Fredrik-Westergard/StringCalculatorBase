@@ -23,4 +23,9 @@ public class StringCalculatorTest {
     public void testUnknownNumberOfDigitsReturnSum(){
         assertEquals(91, new StringCalculator().add("1,2,3,4,5,6,7,8,9,10,11,12,13"));
     }
+
+    @Test
+    public void testUnknownNumberOfDigitsWithNewLineSeparatorAndCommaReturnsSum(){
+        assertEquals(91, new StringCalculator().add("1\n2,3,4\n5,6,7,8,9\n10,11,12\n13"));
+    }
 }

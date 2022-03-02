@@ -8,7 +8,7 @@ public class StringCalculator {
         }
         String str2 = str;
 
-        if(!Character.isDigit(str.charAt(0))){
+        if(str.charAt(0) == ';'){
             str2 = str.substring(2).replace(str.substring(0,1), ",");
         }
 

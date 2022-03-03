@@ -52,7 +52,7 @@ public class StringCalculatorTest {
     @Test
     public void testUnknownNumberOfDigitsWithDifferentSeparatorReturnsSum(){
         try {
-            assertEquals(91, new StringCalculator().add(";\n1;2;3;4;5;6;7;8;9;10;11;12;13"));
+            assertEquals(91, new StringCalculator().add("//;\n1;2;3;4;5;6;7;8;9;10;11;12;13"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -60,7 +60,7 @@ public class StringCalculatorTest {
 
     @Test
     public void testExceptionThrownForNegativeNumbers(){
-        Exception exception = assertThrows(Exception.class, () -> new StringCalculator().add(";\n1;2;3;4;5;6;-7;8;9;10;11;12;13"));
+        Exception exception = assertThrows(Exception.class, () -> new StringCalculator().add("//;\n1;2;3;4;5;6;-7;8;9;10;11;12;13"));
 
         String expected = "Negatives not allowed -7";
 

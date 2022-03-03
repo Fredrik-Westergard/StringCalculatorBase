@@ -8,8 +8,8 @@ public class StringCalculator {
         }
         String str2 = str;
 
-        if(str.charAt(0) == ';'){
-            str2 = str.substring(2).replace(str.substring(0,1), ",");
+        if(str.charAt(0) == '/'){
+            str2 = str.substring(4).replace(str.substring(2,3), ",");
         }
 
         String replaced = str2.replace("\n",",");

@@ -1,0 +1,5 @@
+# StringCalculatorBase
+
+![](<https://codebuild.eu-north-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiYzFRN3htbkJ3UXRsSG54ajlRWk5iMWkxNUxJeFUyem5UdGJZbmJPa3Y1R2lWekpWbDU4blBXbmE5RDJpTUZsVkxiVDBOSGRvWU4vVXIrN1BBSnhWd2hBPSIsIml2UGFyYW1ldGVyU3BlYyI6IkxuOHlQa04xa1NjZWM1c0MiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main>)  
+
+This is a string calculator

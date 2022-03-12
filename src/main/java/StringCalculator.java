@@ -1,5 +1,10 @@
 public class StringCalculator {
 
+    private Logger logger;
+
+    public StringCalculator(Logger logger) {
+        this.logger = logger;
+    }
 
     public int add(String str) throws Exception {
 
@@ -19,6 +24,9 @@ public class StringCalculator {
             int n;
             if((n = Integer.parseInt(number)) < 0){
                 throw new Exception("Negatives not allowed " + n);
+            }
+            if(n > 1000){
+                logger.log(n);
             }
             num+=n;
         }

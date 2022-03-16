@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,6 +16,7 @@ public class StringCalculatorTest {
     private Logger mockLogger;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
+    private final InputStream originalIn = System.in;
 
     @BeforeEach
     public void loggerSetup(){
@@ -27,8 +29,9 @@ public class StringCalculatorTest {
     }
 
     @AfterEach
-    public void setOriginalOut (){
+    public void setOriginalInOut (){
         System.setOut(originalOut);
+        System.setIn(originalIn);
     }
 
     @Test
@@ -106,7 +109,17 @@ public class StringCalculatorTest {
 
     @Test
     public void testWelcomeMessagePrint(){
+        ByteArrayInputStream in = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(in);
         Main.main(null);
         assertEquals("Welcome to String Calculator\nExample usage: scalc '1,2,3'\n", out.toString());
+    }
+
+    @Test
+    public void testInputOutput(){
+        ByteArrayInputStream in = new ByteArrayInputStream("scalc '1,2,3'\n".getBytes());
+        System.setIn(in);
+        Main.main(null);
+        assertEquals("Welcome to String Calculator\nExample usage: scalc '1,2,3'\nThe result is 6\n", out.toString());
     }
 }

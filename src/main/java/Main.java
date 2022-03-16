@@ -1,4 +1,7 @@
+import java.util.Objects;
 import java.util.Scanner;
+
+import static java.lang.System.exit;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,18 +10,20 @@ public class Main {
         Logger logger = new ActualLogger();
         StringCalculator strCalc = new StringCalculator(logger);
         String str = scanner.nextLine();
-        try {
-            if(str.startsWith("scalc '") && str.endsWith("'")){
-                String[] strArr = str.split("'");
-                int num = strCalc.add(strArr[1]);
-                if(num > 0){
-                    System.out.println("The result is " + num);
+        while(!str.isEmpty()){
+            try {
+                if(str.startsWith("scalc '") && str.endsWith("'")){
+                    String[] strArr = str.split("'");
+                    int num = strCalc.add(strArr[1]);
+                    if(num > 0){
+                        System.out.println("The result is " + num);
+                    }
                 }
+            }catch(Exception e){
+                System.out.println("No negative numbers");
             }
-
-
-        }catch(Exception e){
-            System.out.println("No negative numbers");
+            str = scanner.nextLine();
         }
+
     }
 }

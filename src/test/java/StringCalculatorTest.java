@@ -117,9 +117,17 @@ public class StringCalculatorTest {
 
     @Test
     public void testInputOutput(){
-        ByteArrayInputStream in = new ByteArrayInputStream("scalc '1,2,3'\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("scalc '1,2,3'\n\n".getBytes());
         System.setIn(in);
         Main.main(null);
         assertEquals("Welcome to String Calculator\nExample usage: scalc '1,2,3'\nThe result is 6\n", out.toString());
+    }
+
+    @Test
+    public void testMultipleInputs(){
+        ByteArrayInputStream in = new ByteArrayInputStream("scalc '1,2,3'\nscalc '4,5,6'\nscalc '7,8,9'\n\n".getBytes());
+        System.setIn(in);
+        Main.main(null);
+        assertEquals("Welcome to String Calculator\nExample usage: scalc '1,2,3'\nThe result is 6\nThe result is 15\nThe result is 24\n", out.toString());
     }
 }

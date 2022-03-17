@@ -12,7 +12,24 @@ public class Main {
         String str = scanner.nextLine();
         while(!str.isEmpty()){
             try {
-                if(str.startsWith("scalc '") && str.endsWith("'")){
+                if(str.startsWith("scalc '[") && str.endsWith("]")){
+                    String delimiters = str.split("scalc '")[1].split("\\[[.]{1,10}]")[0];
+                    String nextStr = scanner.nextLine();
+                    if(nextStr.endsWith("'")){
+                        nextStr = nextStr.split("'")[0];
+                        String[] delimitersSplit = delimiters.split("]\\[");
+                        delimitersSplit[0] = delimitersSplit[0].split("\\[")[1];
+                        delimitersSplit[delimitersSplit.length-1] = delimitersSplit[delimitersSplit.length-1].split("]")[0];
+                        for (String del : delimitersSplit) {
+                            nextStr = nextStr.replace(del, ",");
+                        }
+                        int num = strCalc.add(nextStr);
+                        if(num > 0){
+                            System.out.println("The result is " + num);
+                        }
+                    }
+                }
+                else if(str.startsWith("scalc '") && str.endsWith("'")){
                     String[] strArr = str.split("'");
                     int num = strCalc.add(strArr[1]);
                     if(num > 0){
@@ -21,6 +38,7 @@ public class Main {
                 }
             }catch(Exception e){
                 System.out.println("No negative numbers");
+                e.printStackTrace();
             }
             str = scanner.nextLine();
         }

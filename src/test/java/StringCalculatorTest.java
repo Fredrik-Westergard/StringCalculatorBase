@@ -133,7 +133,7 @@ public class StringCalculatorTest {
 
     @Test
     public void testMultipleDelimitersWithComplexInput(){
-        ByteArrayInputStream in = new ByteArrayInputStream("scalc '[***]\n1***2***3'\nscalc '[%%%][***]\n4%%%5***6'\nscalc '[****][%][¥¥]\n7****8%9¥¥10'\n\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("scalc '//[***]\n1***2***3'\nscalc '//[%%%][***]\n4%%%5***6'\nscalc '//[****][%][¥¥]\n7****8%9¥¥10'\n\n".getBytes());
         System.setIn(in);
         Main.main(null);
         assertEquals("Welcome to String Calculator\nExample usage: scalc '1,2,3'\nThe result is 6\nThe result is 15\nThe result is 34\n", out.toString());

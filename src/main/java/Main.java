@@ -12,8 +12,8 @@ public class Main {
         String str = scanner.nextLine();
         while(!str.isEmpty()){
             try {
-                if(str.startsWith("scalc '[") && str.endsWith("]")){
-                    String delimiters = str.split("scalc '")[1].split("\\[[.]{1,10}]")[0];
+                if(str.startsWith("scalc '//[") && str.endsWith("]")){
+                    String delimiters = str.split("scalc '//")[1].split("\\[[.]{1,10}]")[0];
                     String nextStr = scanner.nextLine();
                     if(nextStr.endsWith("'")){
                         nextStr = nextStr.split("'")[0];
@@ -38,7 +38,6 @@ public class Main {
                 }
             }catch(Exception e){
                 System.out.println("No negative numbers");
-                e.printStackTrace();
             }
             str = scanner.nextLine();
         }
